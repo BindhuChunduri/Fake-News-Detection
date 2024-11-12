@@ -56,7 +56,7 @@ Usage
 
 	1.	Clone the Repository:
 
-git clone https://github.com/yourusername/fake-news-detection.git
+git clone https://github.com/bindhuchunduri/fake-news-detection.git
 cd fake-news-detection
 
 
