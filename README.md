@@ -98,7 +98,7 @@ fake-news-detection/
 ├── results/               # Evaluation results and visualizations
 ├── requirements.txt       # Project dependencies
 └── README.md              # Project documentation
-
+---
 ## Contributors
 - **Himabindu Chunduri** – Project lead and core ML contributor; designed the end-to-end machine learning pipeline including data preprocessing, feature engineering (TF-IDF, statistical features, Word2Vec), model training, hyperparameter tuning, and evaluation. Managed Git version control, repository structure, and final integration of results.
 
