@@ -1,100 +1,114 @@
-Fake News Detection Using Machine Learning
+# Fake News Detection Using Machine Learning
 
-Project Overview
+## Project Overview
+This project focuses on building a machine learning system to detect **fake news** using Natural Language Processing (NLP) and classical machine learning algorithms. With the rapid spread of misinformation on social media—especially during events like the COVID-19 pandemic—automated fake news detection systems are essential to protect public trust and information integrity.
 
-This project focuses on building a machine learning model to detect fake news, leveraging Natural Language Processing (NLP) and various classification algorithms. With the rise of misinformation on social media, automated fake news detection can help curb the spread of false information and provide more reliable content to users.
+The system leverages **text preprocessing, multi-feature extraction, model comparison, and hyperparameter optimization** to accurately classify news content as **Fake** or **Real**.
 
-Problem Statement
+## Problem Statement
+The rapid spread of fake news on social media platforms poses significant risks to public information integrity and decision-making.  
+This project aims to develop an **automated machine learning-based system** that accurately identifies fake news content with high precision and recall.
 
-The rapid spread of fake news on social media and online platforms threatens the integrity of public information. This project aims to develop an automated system that accurately identifies and classifies fake news to improve information quality and protect public trust.
+## Dataset
+The project uses the **COVID-19 Fake News Dataset** (Kaggle).
 
-Dataset
+### Dataset Split
+- **Training Set:** 6420 samples  
+- **Validation Set:** 2140 samples  
+- **Test Set:** 2140 samples  
 
-We used a dataset from Kaggle, specifically the COVID-19 Fake News Dataset. The dataset includes:
-	•	Training Set: 6420 entries
-	•	Validation Set: 2140 entries
-	•	Test Set: 2140 entries
-	•	Features:
-	•	TF-IDF: 5000 features
-	•	Statistical: 5 features
-	•	Word2Vec: 100-dimensional embeddings
+### Dataset Fields
+- `id` – unique identifier  
+- `tweet` – text content  
+- `label` – `fake` or `real`  
 
-Class Distribution: Real (52.34%), Fake (47.66%)
+### Class Distribution
+- **Real:** 52.34%  
+- **Fake:** 47.66%  
 
-Methodology
+## Methodology
 
-The project follows these main steps:
-	1.	Data Preprocessing: Cleaning text by removing URLs, special characters, tokenization, stop word removal, and lemmatization.
-	2.	Feature Extraction:
-	•	TF-IDF for text representation (5000 features)
-	•	Statistical features (5 features)
-	•	Word2Vec embeddings (100 dimensions)
-	3.	Model Training: Testing multiple classifiers, including:
-	•	Logistic Regression
-	•	Linear Support Vector Classifier (SVC)
-	•	Passive Aggressive Classifier
-	•	Decision Tree
-	4.	Hyperparameter Tuning: Using GridSearchCV with 5-fold cross-validation for optimal parameter settings.
-	5.	Model Evaluation: Using precision, recall, F1 score, and confusion matrix to evaluate performance.
+### 1. Data Preprocessing
+- Lowercasing text
+- URL removal
+- Removing user mentions and hashtags
+- Removing punctuation and numbers
+- Tokenization
+- Stopword removal
+- Lemmatization (NLTK WordNet)
 
-Installation
+### 2. Feature Engineering
+A multi-feature approach is used:
 
-To run this project locally, ensure you have the following dependencies installed:
-	•	Python 3.x
-	•	Scikit-learn
-	•	NLTK
-	•	Gensim
-	•	Pandas
-	•	NumPy
-	•	Matplotlib (for visualization)
+| Feature Type |     Description    |    Dimensions  |
+|--------------|--------------------|----------------|
+| TF-IDF       | Text vectorization |      5000      |
+| Statistical  | Word/character-level metrics |  5   |
+| Word2Vec     | Semantic embeddings|       100      |
+| **Total Features** | Combined | **5105** |
 
-Install dependencies with:
+### 3. Models Evaluated
+- Logistic Regression  
+- Linear Support Vector Classifier (SVC)  
+- Passive Aggressive Classifier  
+- Decision Tree Classifier  
 
-pip install -r requirements.txt
+### 4. Hyperparameter Tuning
+- GridSearchCV with **5-fold cross-validation**
+- Model selection based on validation accuracy and CV score
 
-Usage
+### 5. Evaluation Metrics
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- Confusion Matrix
+- Precision-Recall Curves
+- Error Analysis (False Positives & False Negatives)
 
-	1.	Clone the Repository:
+## Results and Evaluation
 
-git clone https://github.com/bindhuchunduri/fake-news-detection.git
-cd fake-news-detection
+### Best Performing Model
+**Linear SVC**
 
+### Test Performance
+- **Accuracy:** 92.7%  
+- **Precision:** ~0.93  
+- **Recall:** ~0.93  
+- **F1-Score:** ~0.93  
 
-	2.	Preprocess Data: Run the data preprocessing script to clean and tokenize text.
-	3.	Train Models: Execute the training script to train and validate multiple classifiers.
-	4.	Evaluate: Check model performance on test data and review the precision-recall curves, F1 scores, and confusion matrix.
+### Observations
+- Linear SVC and Logistic Regression performed best
+- Decision Tree showed overfitting
+- Passive Aggressive performed weakest
+- Misclassifications were more common in **health-related and statistical news**, where wording overlaps between fake and real content
 
-Results and Evaluation
-
-	•	Best Model: Linear SVC achieved the highest accuracy at approximately 93%.
-	•	F1 Scores: Training (0.988), Validation (0.987), and Test (0.930), indicating consistent performance.
-	•	Common Errors: Misclassification was more frequent in health-related news, where specific wording patterns might be similar in both fake and real news.
-
-Project Structure
-
+## Project Structure
+```text
 fake-news-detection/
 │
-├── data/                  # Dataset files
-├── notebooks/             # Jupyter notebooks for exploratory analysis
-├── src/                   # Source code for preprocessing, model training, and evaluation
-│   ├── preprocess.py      # Data preprocessing pipeline
-│   ├── feature_extraction.py # Feature extraction with TF-IDF, statistical, and Word2Vec
-│   ├── train.py           # Model training and cross-validation
-│   ├── evaluate.py        # Model evaluation and performance metrics
+├── data/                  # Dataset files (or samples / links)
+├── notebooks/             # Jupyter notebooks for EDA and experiments
+├── src/                   # Source code
+│   ├── preprocess.py
+│   ├── feature_extraction.py
+│   ├── train.py
+│   └── evaluate.py
 │
-├── requirements.txt       # List of dependencies
-├── README.md              # Project description and setup instructions
-└── results/               # Evaluation results and visualizations
+├── results/               # Evaluation results and visualizations
+├── requirements.txt       # Project dependencies
+└── README.md              # Project documentation
 
-Contributors
+## Contributors
+- **Himabindu Chunduri** – Project lead and core ML contributor; designed the end-to-end machine learning pipeline including data preprocessing, feature engineering (TF-IDF, statistical features, Word2Vec), model training, hyperparameter tuning, and evaluation. Managed Git version control, repository structure, and final integration of results.
 
-	•	Himabindu Chunduri - Version control and repository management
-	•	Vijayalakshmi Pepala - CI/CD pipeline and automated testing
-	•	Jaswanth Nalluri - Sprint planning and feature management
-	•	Sandeep Chowdary Ari - Code reviews and documentation
+- **Jaswanth Nalluri** – Technical coordination and sprint lead; contributed to model experimentation and comparison, assisted with feature engineering workflows, managed sprint planning and task breakdown, and ensured timely integration of model improvements and evaluation results.
 
-References
+- **Vijayalakshmi Pepala** – CI/CD pipeline setup lead and automated testing; responsible for configuring continuous integration workflows, validating model runs, and maintaining build consistency.
 
+- **Sandeep Chowdary Ari** – Code reviews and documentation lead; conducted systematic code reviews, improved documentation clarity, and ensured adherence to coding and reporting standards.
+
+## References
 	•	Shu, K., et al. (2017). Fake News Detection on Social Media: A Data Mining Perspective.
 	•	Devlin, J., et al. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.
 	•	Scikit-learn Library - Pedregosa et al., JMLR 12, 2011.
