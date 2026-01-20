@@ -83,6 +83,20 @@ A multi-feature approach is used:
 - Passive Aggressive performed weakest
 - Misclassifications were more common in **health-related and statistical news**, where wording overlaps between fake and real content
 
+## Contributors
+- **Himabindu Chunduri** – Project lead and core ML contributor; designed the end-to-end machine learning pipeline including data preprocessing, feature engineering (TF-IDF, statistical features, Word2Vec), model training, hyperparameter tuning, and evaluation. Managed Git version control, repository structure, and final integration of results.
+
+- **Jaswanth Nalluri** – Technical coordination and sprint lead; contributed to model experimentation and comparison, assisted with feature engineering workflows, managed sprint planning and task breakdown, and ensured timely integration of model improvements and evaluation results.
+
+- **Vijayalakshmi Pepala** – CI/CD pipeline setup lead and automated testing; responsible for configuring continuous integration workflows, validating model runs, and maintaining build consistency.
+
+- **Sandeep Chowdary Ari** – Code reviews and documentation lead; conducted systematic code reviews, improved documentation clarity, and ensured adherence to coding and reporting standards.
+
+## References
+	•	Shu, K., et al. (2017). Fake News Detection on Social Media: A Data Mining Perspective.
+	•	Devlin, J., et al. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.
+	•	Scikit-learn Library - Pedregosa et al., JMLR 12, 2011.
+	
 ## Project Structure
 ```text
 fake-news-detection/
@@ -98,17 +112,3 @@ fake-news-detection/
 ├── results/               # Evaluation results and visualizations
 ├── requirements.txt       # Project dependencies
 └── README.md              # Project documentation
----
-## Contributors
-- **Himabindu Chunduri** – Project lead and core ML contributor; designed the end-to-end machine learning pipeline including data preprocessing, feature engineering (TF-IDF, statistical features, Word2Vec), model training, hyperparameter tuning, and evaluation. Managed Git version control, repository structure, and final integration of results.
-
-- **Jaswanth Nalluri** – Technical coordination and sprint lead; contributed to model experimentation and comparison, assisted with feature engineering workflows, managed sprint planning and task breakdown, and ensured timely integration of model improvements and evaluation results.
-
-- **Vijayalakshmi Pepala** – CI/CD pipeline setup lead and automated testing; responsible for configuring continuous integration workflows, validating model runs, and maintaining build consistency.
-
-- **Sandeep Chowdary Ari** – Code reviews and documentation lead; conducted systematic code reviews, improved documentation clarity, and ensured adherence to coding and reporting standards.
-
-## References
-	•	Shu, K., et al. (2017). Fake News Detection on Social Media: A Data Mining Perspective.
-	•	Devlin, J., et al. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.
-	•	Scikit-learn Library - Pedregosa et al., JMLR 12, 2011.
